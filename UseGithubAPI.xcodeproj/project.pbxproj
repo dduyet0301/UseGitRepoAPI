@@ -133,8 +133,6 @@
 				B676EF2824A2703D00CF4D08 /* LaunchScreen.storyboard */,
 				B676EF2B24A2703D00CF4D08 /* Info.plist */,
 				B676EF4D24A2BE5B00CF4D08 /* TableViewCell.swift */,
-				B63505F824A2E77B00F66A86 /* GetData.swift */,
-				B63505FA24A2EAE700F66A86 /* GitRepo.swift */,
 				B63505FC24A3128D00F66A86 /* Contains.swift */,
 				B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */,
 			);
@@ -162,6 +160,7 @@
 		B68B47AD24A4A85C00E4C7C0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B63505F824A2E77B00F66A86 /* GetData.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -169,6 +168,7 @@
 		B68B47AE24A4A86600E4C7C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B63505FA24A2EAE700F66A86 /* GitRepo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
