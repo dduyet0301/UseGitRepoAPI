@@ -5,4 +5,6 @@ target 'UseGithubAPI' do
 pod 'Alamofire', '~> 4.9'
 pod 'SDWebImage', '~> 5.0'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
 end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B63213FB24A9C89C00CF0239 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63213FA24A9C89C00CF0239 /* TableViewCell2.swift */; };
 		B63505F924A2E77B00F66A86 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63505F824A2E77B00F66A86 /* GetData.swift */; };
 		B63505FB24A2EAE700F66A86 /* GitRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63505FA24A2EAE700F66A86 /* GitRepo.swift */; };
 		B63505FD24A3128D00F66A86 /* Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63505FC24A3128D00F66A86 /* Contains.swift */; };
@@ -18,7 +19,16 @@
 		B676EF3524A2703D00CF4D08 /* UseGithubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B676EF3424A2703D00CF4D08 /* UseGithubAPITests.swift */; };
 		B676EF4024A2703D00CF4D08 /* UseGithubAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B676EF3F24A2703D00CF4D08 /* UseGithubAPIUITests.swift */; };
 		B676EF4E24A2BE5B00CF4D08 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B676EF4D24A2BE5B00CF4D08 /* TableViewCell.swift */; };
+		B679375E24AB47D60032BADA /* TableViewCellProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679375D24AB47D60032BADA /* TableViewCellProfile.swift */; };
+		B679376024AB49510032BADA /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B679375F24AB49510032BADA /* ViewController3.swift */; };
+		B67D83A824AC2A630011320F /* TableViewCellRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D83A724AC2A630011320F /* TableViewCellRepo.swift */; };
+		B67D83AA24AC2A840011320F /* TableViewCellLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D83A924AC2A840011320F /* TableViewCellLogout.swift */; };
+		B67D83EA24AC5FE10011320F /* UseGithubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B67D83E824AC5FE10011320F /* UseGithubAPI.xcdatamodeld */; };
 		B68B47AC24A4837E00E4C7C0 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */; };
+		B68F5B6624A5E819001806F0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B68F5B6524A5E819001806F0 /* GoogleService-Info.plist */; };
+		B6EE05C224A5ABF600F74641 /* GithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE05C124A5ABF600F74641 /* GithubViewController.swift */; };
+		B6EE05C524A5AF7400F74641 /* CustomLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6EE05C424A5AF7300F74641 /* CustomLogin.xib */; };
+		B6EE05C724A5AF9600F74641 /* CustomLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE05C624A5AF9600F74641 /* CustomLogin.swift */; };
 		CB433EB37EBB4188200B489D /* Pods_UseGithubAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DBD6C4379B63511A23971EA /* Pods_UseGithubAPI.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +53,7 @@
 		503CB909F88661188F12DD8F /* Pods-UseGithubAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseGithubAPI.debug.xcconfig"; path = "Target Support Files/Pods-UseGithubAPI/Pods-UseGithubAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		9DBD6C4379B63511A23971EA /* Pods_UseGithubAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UseGithubAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24522C4D4D20FC68598D21C /* Pods-UseGithubAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UseGithubAPI.release.xcconfig"; path = "Target Support Files/Pods-UseGithubAPI/Pods-UseGithubAPI.release.xcconfig"; sourceTree = "<group>"; };
+		B63213FA24A9C89C00CF0239 /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		B63505F824A2E77B00F66A86 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
 		B63505FA24A2EAE700F66A86 /* GitRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepo.swift; sourceTree = "<group>"; };
 		B63505FC24A3128D00F66A86 /* Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contains.swift; sourceTree = "<group>"; };
@@ -60,7 +71,16 @@
 		B676EF3F24A2703D00CF4D08 /* UseGithubAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseGithubAPIUITests.swift; sourceTree = "<group>"; };
 		B676EF4124A2703D00CF4D08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B676EF4D24A2BE5B00CF4D08 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		B679375D24AB47D60032BADA /* TableViewCellProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProfile.swift; sourceTree = "<group>"; };
+		B679375F24AB49510032BADA /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		B67D83A724AC2A630011320F /* TableViewCellRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellRepo.swift; sourceTree = "<group>"; };
+		B67D83A924AC2A840011320F /* TableViewCellLogout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellLogout.swift; sourceTree = "<group>"; };
+		B67D83E924AC5FE10011320F /* UseGithubAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UseGithubAPI.xcdatamodel; sourceTree = "<group>"; };
 		B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		B68F5B6524A5E819001806F0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B6EE05C124A5ABF600F74641 /* GithubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubViewController.swift; sourceTree = "<group>"; };
+		B6EE05C424A5AF7300F74641 /* CustomLogin.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomLogin.xib; path = ../CustomLogin.xib; sourceTree = "<group>"; };
+		B6EE05C624A5AF9600F74641 /* CustomLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +147,11 @@
 				B68B47AE24A4A86600E4C7C0 /* Model */,
 				B68B47AD24A4A85C00E4C7C0 /* Controller */,
 				B676EF1F24A2703C00CF4D08 /* AppDelegate.swift */,
-				B676EF2124A2703C00CF4D08 /* ViewController.swift */,
 				B676EF2624A2703D00CF4D08 /* Assets.xcassets */,
 				B676EF2824A2703D00CF4D08 /* LaunchScreen.storyboard */,
 				B676EF2B24A2703D00CF4D08 /* Info.plist */,
-				B676EF4D24A2BE5B00CF4D08 /* TableViewCell.swift */,
-				B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */,
+				B67D83E824AC5FE10011320F /* UseGithubAPI.xcdatamodeld */,
+				B68F5B6524A5E819001806F0 /* GoogleService-Info.plist */,
 			);
 			path = UseGithubAPI;
 			sourceTree = "<group>";
@@ -176,6 +195,17 @@
 			isa = PBXGroup;
 			children = (
 				B676EF2324A2703C00CF4D08 /* Main.storyboard */,
+				B6EE05C424A5AF7300F74641 /* CustomLogin.xib */,
+				B676EF2124A2703C00CF4D08 /* ViewController.swift */,
+				B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */,
+				B679375F24AB49510032BADA /* ViewController3.swift */,
+				B676EF4D24A2BE5B00CF4D08 /* TableViewCell.swift */,
+				B6EE05C624A5AF9600F74641 /* CustomLogin.swift */,
+				B6EE05C124A5ABF600F74641 /* GithubViewController.swift */,
+				B63213FA24A9C89C00CF0239 /* TableViewCell2.swift */,
+				B679375D24AB47D60032BADA /* TableViewCellProfile.swift */,
+				B67D83A724AC2A630011320F /* TableViewCellRepo.swift */,
+				B67D83A924AC2A840011320F /* TableViewCellLogout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -294,9 +324,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EE05C524A5AF7400F74641 /* CustomLogin.xib in Resources */,
 				B676EF2A24A2703D00CF4D08 /* LaunchScreen.storyboard in Resources */,
 				B676EF2724A2703D00CF4D08 /* Assets.xcassets in Resources */,
 				B676EF2524A2703C00CF4D08 /* Main.storyboard in Resources */,
+				B68F5B6624A5E819001806F0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,12 +396,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B68B47AC24A4837E00E4C7C0 /* ViewController2.swift in Sources */,
+				B67D83AA24AC2A840011320F /* TableViewCellLogout.swift in Sources */,
+				B67D83A824AC2A630011320F /* TableViewCellRepo.swift in Sources */,
 				B63505FB24A2EAE700F66A86 /* GitRepo.swift in Sources */,
+				B679376024AB49510032BADA /* ViewController3.swift in Sources */,
 				B676EF4E24A2BE5B00CF4D08 /* TableViewCell.swift in Sources */,
 				B63505FD24A3128D00F66A86 /* Contains.swift in Sources */,
 				B676EF2224A2703C00CF4D08 /* ViewController.swift in Sources */,
+				B679375E24AB47D60032BADA /* TableViewCellProfile.swift in Sources */,
 				B63505F924A2E77B00F66A86 /* GetData.swift in Sources */,
 				B676EF2024A2703C00CF4D08 /* AppDelegate.swift in Sources */,
+				B6EE05C224A5ABF600F74641 /* GithubViewController.swift in Sources */,
+				B67D83EA24AC5FE10011320F /* UseGithubAPI.xcdatamodeld in Sources */,
+				B63213FB24A9C89C00CF0239 /* TableViewCell2.swift in Sources */,
+				B6EE05C724A5AF9600F74641 /* CustomLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,6 +736,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B67D83E824AC5FE10011320F /* UseGithubAPI.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B67D83E924AC5FE10011320F /* UseGithubAPI.xcdatamodel */,
+			);
+			currentVersion = B67D83E924AC5FE10011320F /* UseGithubAPI.xcdatamodel */;
+			name = UseGithubAPI.xcdatamodeld;
+			path = View/UseGithubAPI.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B676EF1424A2703C00CF4D08 /* Project object */;
 }

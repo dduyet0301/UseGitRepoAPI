@@ -18,8 +18,9 @@ struct GitRepo: Decodable {
     var issue: String
     var commit: String
     var url: String
+    var priv: String
     
-    init(name: String, login: String, avatar_url: String, star:String, watch:String, fork:String, issue:String, commit:String, url:String) {
+    init(name: String, login: String, avatar_url: String, star:String, watch:String, fork:String, issue:String, commit:String, url:String, priv:String) {
         self.name = name
         self.login = login
         self.avatar_url = avatar_url
@@ -29,5 +30,6 @@ struct GitRepo: Decodable {
         self.issue = issue
         self.commit = commit
         self.url = url
+        self.priv = priv
     }
 }
