@@ -33,14 +33,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableInfo.delegate = self
         tableInfo.dataSource = self
         searchBar.delegate = self
+        arrRepoCacheDefault = Contains.cachePublic.get()
         if !InternetCheck.isConnectedToInternet() {
             print("no internet 00")
-            arrRepoCacheDefault = Contains.cachePublic.get()
             Contains.arrRepo = arrRepoCacheDefault
         } else {
             getData.fetchData(endpoint: "?q=language:&per_page=50&page=\(page)", table: tableInfo)
+            pullToRefresh()
         }
-        pullToRefresh()
         starSort.addTarget(self, action: #selector(star), for: .touchUpInside)
         forkSort.addTarget(self, action: #selector(fork), for: .touchUpInside)
         tableInfo.tableFooterView = UIView(frame: .zero)
@@ -67,7 +67,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCell = tableInfo.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
-        if !Contains.arrRepo.isEmpty{
             let repo = Contains.arrRepo[indexPath.row]
             cell.lbName.text = repo.login
             cell.lbRepo.text = repo.name
@@ -76,8 +75,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.lbWatch.text = repo.watch
             cell.lbFork.text = repo.fork
             cell.lbIssue.text = repo.issue
-            cell.lbCommit.text =  "Commit at: \(repo.commit)"}
-        //        }
+            cell.lbCommit.text =  "Commit at: \(repo.commit)"
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -85,10 +83,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //        arrFilter = Contains.arrRepo.filter({$0.login.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        Contains.arrRepo = Contains.arrRepo.filter({$0.name.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        
         mode = 3
         if searchText.isEmpty {
+            mode = 2
+            Contains.arrRepo.removeAll()
+            tableInfo.reloadData()
+            if !InternetCheck.isConnectedToInternet() {
+                Contains.arrRepo = arrRepoCacheDefault
+            } else {
+                getData.fetchData(endpoint: "?q=language:&per_page=50&page=1)", table: tableInfo)
+            }
+        } else {
             Contains.arrRepo = arrRepoCacheDefault
+            Contains.arrRepo = Contains.arrRepo.filter({ (repo) -> Bool in
+                return repo.name.lowercased().contains(searchText.lowercased())
+            })
+            debugPrint("ababab \(Contains.arrRepo.count)")
         }
         tableInfo.reloadData()
     }
@@ -121,8 +132,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             getData.fetchData(endpoint: "?q=language:&per_page=\(limit)&page=\(page)&sort=stars&order=\(sortType)", table: tableInfo)
         } else if mode == 1 {
             getData.fetchData(endpoint: "?q=language:&per_page=\(limit)&page=\(page)&sort=forks&order=\(sortType)", table: tableInfo)
-        } else if mode == 3 {
-            getData.fetchData(endpoint: "?q=language:&per_page=50&page=\(page)", table: tableInfo)
         }
     }
     @objc func star() {

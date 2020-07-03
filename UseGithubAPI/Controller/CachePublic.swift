@@ -27,6 +27,7 @@ class CachePublic {
             repoDataCore.setValue(arrRepo.watch, forKey: "watch")
             repoDataCore.setValue(arrRepo.fork, forKey: "fork")
             repoDataCore.setValue(arrRepo.issue, forKey: "issue")
+            debugPrint(arrRepo.name)
         }
         do {
             try managedContext.save()
@@ -56,7 +57,7 @@ class CachePublic {
                 let issue = i.value(forKey: "issue") as! String
                 let repo = GitRepo.init(name: repoName, login: loginName, avatar_url: imgAva, star: star, watch: watch, fork: fork, issue: issue, commit: commit, url: "", priv: "")
                 arr.append(repo)
-                print("saved data: \(repoName)")
+//                debugPrint(repoName)
             }
         } catch {
             print("Could not fetch")

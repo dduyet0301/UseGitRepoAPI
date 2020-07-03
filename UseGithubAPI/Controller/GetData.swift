@@ -41,8 +41,6 @@ class GetData {
                             Contains.arrRepo.append(gitRepo)
                         }
                         Contains.cachePublic.save(arr: Contains.arrRepo)
-
-                        debugPrint(Contains.arrRepo.count)
                         table.reloadData()
                         Contains.loadMore = true
                     }
