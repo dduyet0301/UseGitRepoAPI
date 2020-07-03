@@ -3,26 +3,26 @@
     <entity name="PublicRepo" representedClassName="PublicRepo" syncable="YES" codeGenerationType="class">
         <attribute name="avatar_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="commit" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fork" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="issue" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fork" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="issue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="star" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="watch" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="star" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="watch" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Repository" representedClassName="Repository" syncable="YES" codeGenerationType="class">
         <attribute name="avatar_url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="commit" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fork" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="issue" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fork" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="issue" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="priv" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="star" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="watch" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="star" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="watch" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PublicRepo" positionX="-117" positionY="135" width="128" height="165"/>
-        <element name="Repository" positionX="-135" positionY="171" width="128" height="180"/>
+        <element name="PublicRepo" positionX="-36" positionY="9" width="128" height="165"/>
+        <element name="Repository" positionX="0" positionY="108" width="128" height="180"/>
     </elements>
 </model>

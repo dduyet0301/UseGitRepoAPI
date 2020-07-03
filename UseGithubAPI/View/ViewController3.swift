@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
 
 class ViewController3: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
@@ -20,11 +21,13 @@ class ViewController3: UIViewController, UITableViewDataSource, UITableViewDeleg
         if Auth.auth().currentUser != nil {
             customLogin.isHidden = true
         }
-        let accessToken = UserDefaults.standard.string(forKey: "000")!
-        Contains.accessToken = accessToken
-        getRepo.fetchData2(table: tableView)
-        print("TOKEN:\(accessToken)")
-        
+        if !InternetCheck.isConnectedToInternet(){
+            Contains.arrUserProfile = Contains.cacheUser.get()
+        } else {
+            let accessToken = UserDefaults.standard.string(forKey: "000")!
+            Contains.accessToken = accessToken
+            getRepo.fetchData2(table: tableView)
+        }
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reload"), object: nil)
     }
     @objc func reload (notification: NSNotification) {
@@ -38,15 +41,13 @@ class ViewController3: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //CellProfile  CellRepo  CellLogout
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellProfile") as! TableViewCellProfile
-            if !Contains.arrUser.isEmpty {
-                let user = Contains.arrUser[0]
+            if !Contains.arrUserProfile.isEmpty {
+                let user = Contains.arrUserProfile[0]
                 cell.imgAva.sd_setImage(with: URL(string: user.avatar_url))
                 cell.lbName.text = user.login
                 cell.lbCommit.text = user.commit
-                print("nameee\(user.login)")
             }
             return cell
         } else if indexPath.row == 1 {

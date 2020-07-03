@@ -12,7 +12,6 @@ import SwiftyJSON
 
 class GetData {
     fileprivate var baseUrl = ""
-    
     init(baseUrl:String) {
         self.baseUrl = baseUrl
     }
@@ -26,6 +25,7 @@ class GetData {
                 let myresult = try JSON(data: myResponse.data!)
                     if let resultArray = myresult["items"].array{
 //                        Contains.arrRepo.removeAll()
+                        Contains.cachePublic.delete()
                         for i in resultArray{
 //                            print(i)
                             let name = i["name"].stringValue
@@ -37,14 +37,16 @@ class GetData {
                             let issue = i["open_issues"].stringValue
                             let commit = i["updated_at"].stringValue
                             let url = i["html_url"].stringValue
-                            
                             let gitRepo = GitRepo.init(name: name, login: login, avatar_url: avatar_url, star: star, watch: watch, fork: fork, issue: issue, commit: commit, url: url, priv: "")
                             Contains.arrRepo.append(gitRepo)
                         }
+                        Contains.cachePublic.save(arr: Contains.arrRepo)
+
                         debugPrint(Contains.arrRepo.count)
                         table.reloadData()
+                        Contains.loadMore = true
                     }
-                }catch{
+                } catch {
                     debugPrint("error")
                 }
             
@@ -71,6 +73,8 @@ class GetData {
                         Contains.arrUser.removeAll()
                         Contains.arrPrivate.removeAll()
                         Contains.arrPublic.removeAll()
+                        Contains.arrUserProfile.removeAll()
+                        Contains.cacheUser.delete()
                         for i in resultArray{
                             let priv = i["private"].stringValue
                             let userName = i["owner"]["login"].stringValue
@@ -89,11 +93,14 @@ class GetData {
                                 Contains.arrPublic.append(gitUserRepo)
                             }
                         }
+                        Contains.cacheUser.save(arr: Contains.arrUser)
                         Contains.arrUser = Contains.arrPublic
+                        Contains.arrUserProfile = Contains.arrUser
+                       
                         debugPrint(Contains.arrUser.count)
                         table.reloadData()
                     }
-                } catch{
+                } catch {
                     debugPrint("error")
                 }
                 break

@@ -54,9 +54,9 @@ import FirebaseAuth
                         } else {
                             let a = authResult?.credential as! OAuthCredential
                             let accessToken = a.accessToken
-                            print("token \(accessToken)")
                             self.prefereces.set(accessToken, forKey: "000")
                     NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
+                            self.isHidden = true
                         }
                     }
                 }

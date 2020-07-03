@@ -12,23 +12,29 @@ import FirebaseAuth
 class GithubViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var tableRepo: UITableView!
     let getRepo = GetData(baseUrl: "https://api.github.com/user/repos")
-
     override func viewDidLoad() {
         super.viewDidLoad()
         tableRepo.dataSource = self
         tableRepo.delegate = self
         //repo
-//        let accessToken = UserDefaults.standard.string(forKey: "000")!
-//        Contains.accessToken = accessToken
-//        getRepo.fetchData2(table: tableRepo)
-//        print("getToken: \(accessToken)")
-
+        let accessToken = UserDefaults.standard.string(forKey: "000")!
+        Contains.accessToken = accessToken
+        getRepo.fetchData2(table: tableRepo)
+        print("getToken: \(accessToken)")
+        if !InternetCheck.isConnectedToInternet() {
+            Contains.arrUser = Contains.cacheUser.get()
+            for repo in Contains.arrUser {
+                if repo.priv == "true" {
+                    Contains.arrPrivate.append(repo)
+                } else {
+                    Contains.arrPublic.append(repo)
+                }
+            }
+        }
     }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Contains.arrUser.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell2") as! TableViewCell2
         let userRepo = Contains.arrUser[indexPath.row]
