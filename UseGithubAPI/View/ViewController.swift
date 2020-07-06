@@ -44,7 +44,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         starSort.addTarget(self, action: #selector(star), for: .touchUpInside)
         forkSort.addTarget(self, action: #selector(fork), for: .touchUpInside)
         tableInfo.tableFooterView = UIView(frame: .zero)
-        
     }
     func pullToRefresh() {
         refreshControl.attributedTitle = NSAttributedString(string: "Refresh")
@@ -99,7 +98,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             Contains.arrRepo = Contains.arrRepo.filter({ (repo) -> Bool in
                 return repo.name.lowercased().contains(searchText.lowercased())
             })
-            debugPrint("ababab \(Contains.arrRepo.count)")
         }
         tableInfo.reloadData()
     }
