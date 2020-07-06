@@ -47,7 +47,7 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 170
     }
     @IBAction func didChangeSegment(_ sender: UISegmentedControl){
         if sender.selectedSegmentIndex == 0 {
