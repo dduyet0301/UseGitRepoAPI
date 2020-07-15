@@ -24,11 +24,13 @@ import FirebaseAuth
             super.init(coder: aDecoder)
             setup()
         }
+        
         init() {
             super.init(frame: .zero)
             setup()
         }
-        private func setup () {
+        
+        private func setup() {
             Bundle.main.loadNibNamed("CustomLogin", owner: self, options: nil)
             contentView.translatesAutoresizingMaskIntoConstraints = false
             addSubview(contentView)

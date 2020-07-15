@@ -132,6 +132,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             getData.fetchData(endpoint: "?q=language:&per_page=\(limit)&page=\(page)&sort=forks&order=\(sortType)", table: tableInfo)
         }
     }
+    
     @objc func star() {
         //&sort=stars
         if mode == 0  {

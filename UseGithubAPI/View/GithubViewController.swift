@@ -49,7 +49,7 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl){
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             Contains.arrUser = Contains.arrPublic
             tableRepo.reloadData()
