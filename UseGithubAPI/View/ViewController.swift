@@ -19,6 +19,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableInfo: UITableView!
     var refreshControl = UIRefreshControl()
+    // FIXME: không để base URL ở đây, như vậy mỗi lần dùng sẽ phải truyền lại vào 1 lần nữa, nếu ở nhiều nơi khi sửa sẽ dễ bị sửa thiếu chỗ
+    // base Url nên để luôn trong lớp quản lý việc gọi API
     let getData = GetData(baseUrl: "https://api.github.com/search/repositories")
     var page: Int = 1
     var limit: Int = 50
@@ -38,6 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("no internet 00")
             Contains.arrRepo = arrRepoCacheDefault
         } else {
+            // FIXME: nên đưa logic liên quan đến API vào bên trong lớp quản lý API và chỉ truyền dữ liệu cần thiết vào thôi, tránh việc các lớp không liên khác phải làm công việc xử lý logic của lớp API
             getData.fetchData(endpoint: "?q=language:&per_page=50&page=\(page)", table: tableInfo)
             pullToRefresh()
         }
@@ -58,6 +61,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         Contains.arrRepo.removeAll()
         tableInfo.dataSource = self
         tableInfo.delegate = self
+        // FIXME: nên đưa logic liên quan đến API vào bên trong lớp quản lý API và chỉ truyền dữ liệu cần thiết vào thôi, tránh việc các lớp không liên khác phải làm công việc xử lý logic của lớp API
         getData.fetchData(endpoint: "?q=language:&per_page=50&page=\(page)", table: tableInfo)
         refreshControl.endRefreshing()
     }
@@ -91,6 +95,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if !InternetCheck.isConnectedToInternet() {
                 Contains.arrRepo = arrRepoCacheDefault
             } else {
+                // FIXME: nên đưa logic liên quan đến API vào bên trong lớp quản lý API và chỉ truyền dữ liệu cần thiết vào thôi, tránh việc các lớp không liên khác phải làm công việc xử lý logic của lớp API
                 getData.fetchData(endpoint: "?q=language:&per_page=50&page=1)", table: tableInfo)
             }
         } else {
@@ -124,6 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc func loadMore() {
+        // FIXME: nên đưa logic liên quan đến API vào bên trong lớp quản lý API và chỉ truyền dữ liệu cần thiết vào thôi, tránh việc các lớp không liên khác phải làm công việc xử lý logic của lớp API
         if mode == 2 {
             getData.fetchData(endpoint: "?q=language:&per_page=50&page=\(page)", table: tableInfo)
         } else if mode == 0 {
@@ -151,6 +157,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableInfo.dataSource = self
             Contains.arrRepo.removeAll()
             tableInfo.reloadData()
+            // FIXME: nên đưa logic liên quan đến API vào bên trong lớp quản lý API và chỉ truyền dữ liệu cần thiết vào thôi, tránh việc các lớp không liên khác phải làm công việc xử lý logic của lớp API
             getData.fetchData(endpoint: "?q=language:&per_page=\(limit)&page=\(page)&sort=stars&order=\(sortType)", table: tableInfo)
         } else {
             starCache()

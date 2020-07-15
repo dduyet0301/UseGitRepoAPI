@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController2: UIViewController {
     
+    // FIXME: chuyển sang dùng WKWebView nếu không app sẽ không được phép upload lên apple store
     @IBOutlet weak var webView: UIWebView!
     var url: String = ""
     override func viewDidLoad() {

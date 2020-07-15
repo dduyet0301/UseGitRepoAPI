@@ -16,6 +16,9 @@ class GetData {
         self.baseUrl = baseUrl
     }
     
+    // FIXME: lớp gọi API không nên phụ thuộc vào các thành phần UI nên không truyền UITableView vào đây
+    // giả sử dữ liệu dùng làm data source cho collection view thì hàm này không dùng được
+    // nên truyền vào 1 hàm (closure) callback để trả lại dữ liệu
     func fetchData(endpoint: String, table: UITableView) {
         Alamofire.request(self.baseUrl + endpoint, method: .get).responseJSON { (myResponse) in
             switch myResponse.result{
@@ -55,6 +58,8 @@ class GetData {
             }
         }
     }
+    
+    // FIXME: tương tự FIXME trên
     func fetchData2(table: UITableView) {
         let header = [
             "Authorization" : "token " + Contains.accessToken

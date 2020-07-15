@@ -13,6 +13,8 @@ import CoreData
 class ViewController3: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var customLogin: CustomLogin!
+    // FIXME: không để base URL ở đây, như vậy mỗi lần dùng sẽ phải truyền lại vào 1 lần nữa, nếu ở nhiều nơi khi sửa sẽ dễ bị sửa thiếu chỗ
+    // base Url nên để luôn trong lớp quản lý việc gọi API
     let getRepo = GetData(baseUrl: "https://api.github.com/user/repos")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class ViewController3: UIViewController, UITableViewDataSource, UITableViewDeleg
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reload"), object: nil)
     }
     @objc func reload (notification: NSNotification) {
+        // FIXME: không nên gọi lại hàm của view controller mà nên tách ra hàm riêng
         self.viewDidLoad()
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
