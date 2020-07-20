@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  UseGithubAPI
+
+  Created by gem on 7/20/20.
+  Copyright © 2020 gem. All rights reserved.
+*/
+"CFBundleDisplayName" = "KhoCodeGithub";

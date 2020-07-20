@@ -1,0 +1,81 @@
+
+/* Class = "UILabel"; text = "Copyright © 2020 GEM. All rights reserved. "; ObjectID = "10M-2j-F4t"; */
+"10M-2j-F4t.text" = "Bản quyền GEM Việt Nam 2020. ";
+
+/* Class = "UILabel"; text = "Version: 1.0"; ObjectID = "7e1-9W-aKf"; */
+"7e1-9W-aKf.text" = "Phiên bản: 1.0";
+
+/* Class = "UILabel"; text = "Github repository browser"; ObjectID = "PRu-su-UCS"; */
+"PRu-su-UCS.text" = "Kho code Github";
+
+/* Class = "UILabel"; text = "Fork"; ObjectID = "2be-bq-qT4"; */
+"2be-bq-qT4.text" = "Nhánh";
+
+/* Class = "UILabel"; text = "Star"; ObjectID = "AFf-zw-bBw"; */
+"AFf-zw-bBw.text" = "Sao";
+
+/* Class = "UILabel"; text = "repo name"; ObjectID = "C7B-b0-xdj"; */
+"C7B-b0-xdj.text" = "repo name";
+
+/* Class = "UITabBarItem"; title = "Github"; ObjectID = "FpU-fb-aEE"; */
+"FpU-fb-aEE.title" = "Github";
+
+/* Class = "UILabel"; text = "last commit"; ObjectID = "FtV-07-gwr"; */
+"FtV-07-gwr.text" = "last commit";
+
+/* Class = "UILabel"; text = "Repo name"; ObjectID = "Lxb-1c-wcR"; */
+"Lxb-1c-wcR.text" = "Repo name";
+
+/* Class = "UIButton"; normalTitle = "star"; ObjectID = "NpA-Si-0Tr"; */
+"NpA-Si-0Tr.normalTitle" = "sao";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "Qnq-nO-Qna"; */
+"Qnq-nO-Qna.text" = "Đăng xuất";
+
+/* Class = "UILabel"; text = "star"; ObjectID = "RU1-YT-N8d"; */
+"RU1-YT-N8d.text" = "sao";
+
+/* Class = "UIButton"; normalTitle = "fork"; ObjectID = "Ta3-35-QTV"; */
+"Ta3-35-QTV.normalTitle" = "nhánh";
+
+/* Class = "UISegmentedControl"; U30-va-caE.segmentTitles[0] = "Public"; ObjectID = "U30-va-caE"; */
+"U30-va-caE.segmentTitles[0]" = "Công khai";
+
+/* Class = "UISegmentedControl"; U30-va-caE.segmentTitles[1] = "Private"; ObjectID = "U30-va-caE"; */
+"U30-va-caE.segmentTitles[1]" = "Cá nhân";
+
+/* Class = "UITabBarItem"; title = "Repositories"; ObjectID = "XJ5-kE-4CB"; */
+"XJ5-kE-4CB.title" = "Kho lưu trữ";
+
+/* Class = "UILabel"; text = "Repositories"; ObjectID = "XYU-y2-LH7"; */
+"XYU-y2-LH7.text" = "Kho lưu trữ";
+
+/* Class = "UILabel"; text = "issue"; ObjectID = "Yfm-dt-TnB"; */
+"Yfm-dt-TnB.text" = "issue";
+
+/* Class = "UILabel"; text = "Issue"; ObjectID = "Zia-ol-htp"; */
+"Zia-ol-htp.text" = "Vấn đề";
+
+/* Class = "UILabel"; text = "fork"; ObjectID = "bJQ-sH-56d"; */
+"bJQ-sH-56d.text" = "fork";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "hAL-RA-pC6"; */
+"hAL-RA-pC6.text" = "Tên";
+
+/* Class = "UILabel"; text = "watch"; ObjectID = "naM-Bx-FPk"; */
+"naM-Bx-FPk.text" = "watch";
+
+/* Class = "UILabel"; text = "Watch"; ObjectID = "oB7-d8-9eE"; */
+"oB7-d8-9eE.text" = "Lượt xem";
+
+/* Class = "UILabel"; text = "commit"; ObjectID = "r3D-vE-p9w"; */
+"r3D-vE-p9w.text" = "commit";
+
+/* Class = "UILabel"; text = "username"; ObjectID = "rxc-tI-Ht6"; */
+"rxc-tI-Ht6.text" = "username";
+
+/* Class = "UISearchBar"; zzM-1A-NOM.scopeButtonTitles[0] = "Title"; ObjectID = "zzM-1A-NOM"; */
+"zzM-1A-NOM.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; zzM-1A-NOM.scopeButtonTitles[1] = "Title"; ObjectID = "zzM-1A-NOM"; */
+"zzM-1A-NOM.scopeButtonTitles[1]" = "Title";
