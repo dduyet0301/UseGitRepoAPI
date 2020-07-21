@@ -11,7 +11,6 @@
 		B63213FB24A9C89C00CF0239 /* TableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63213FA24A9C89C00CF0239 /* TableViewCell2.swift */; };
 		B63505F924A2E77B00F66A86 /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63505F824A2E77B00F66A86 /* GetData.swift */; };
 		B63505FB24A2EAE700F66A86 /* GitRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63505FA24A2EAE700F66A86 /* GitRepo.swift */; };
-		B63505FD24A3128D00F66A86 /* Contains.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63505FC24A3128D00F66A86 /* Contains.swift */; };
 		B66A3BE024ADC4F10073C86A /* CachePublic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A3BDF24ADC4F10073C86A /* CachePublic.swift */; };
 		B66A3BE224ADE7650073C86A /* InternetCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66A3BE124ADE7650073C86A /* InternetCheck.swift */; };
 		B66CE80324AF16A100D60EB6 /* UseGithubAPI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B66CE80124AF16A100D60EB6 /* UseGithubAPI.xcdatamodeld */; };
@@ -29,6 +28,7 @@
 		B67D83AA24AC2A840011320F /* TableViewCellLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D83A924AC2A840011320F /* TableViewCellLogout.swift */; };
 		B67D842924AC83350011320F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D842824AC83350011320F /* Cache.swift */; };
 		B68B47AC24A4837E00E4C7C0 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */; };
+		B693600724C6A670007F4BBD /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = B693600624C6A670007F4BBD /* Global.swift */; };
 		B6EE05C224A5ABF600F74641 /* GithubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE05C124A5ABF600F74641 /* GithubViewController.swift */; };
 		B6EE05C724A5AF9600F74641 /* CustomLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE05C624A5AF9600F74641 /* CustomLogin.swift */; };
 		B6F4149C24C5A0820020F841 /* CustomLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F4149E24C5A0820020F841 /* CustomLogin.xib */; };
@@ -62,7 +62,6 @@
 		B63213FA24A9C89C00CF0239 /* TableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell2.swift; sourceTree = "<group>"; };
 		B63505F824A2E77B00F66A86 /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
 		B63505FA24A2EAE700F66A86 /* GitRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepo.swift; sourceTree = "<group>"; };
-		B63505FC24A3128D00F66A86 /* Contains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contains.swift; sourceTree = "<group>"; };
 		B66A3BDF24ADC4F10073C86A /* CachePublic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachePublic.swift; sourceTree = "<group>"; };
 		B66A3BE124ADE7650073C86A /* InternetCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetCheck.swift; sourceTree = "<group>"; };
 		B66CE80224AF16A100D60EB6 /* UseGithubAPI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UseGithubAPI.xcdatamodel; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		B67D83A924AC2A840011320F /* TableViewCellLogout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellLogout.swift; sourceTree = "<group>"; };
 		B67D842824AC83350011320F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		B68B47AB24A4837E00E4C7C0 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		B693600624C6A670007F4BBD /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		B6EE05C124A5ABF600F74641 /* GithubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubViewController.swift; sourceTree = "<group>"; };
 		B6EE05C624A5AF9600F74641 /* CustomLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLogin.swift; sourceTree = "<group>"; };
 		B6F4149B24C59D100020F841 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -192,11 +192,11 @@
 		B68B47AD24A4A85C00E4C7C0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B63505FC24A3128D00F66A86 /* Contains.swift */,
 				B63505F824A2E77B00F66A86 /* GetData.swift */,
 				B67D842824AC83350011320F /* Cache.swift */,
 				B66A3BDF24ADC4F10073C86A /* CachePublic.swift */,
 				B66A3BE124ADE7650073C86A /* InternetCheck.swift */,
+				B693600624C6A670007F4BBD /* Global.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -471,7 +471,7 @@
 				B63505FB24A2EAE700F66A86 /* GitRepo.swift in Sources */,
 				B679376024AB49510032BADA /* ViewController3.swift in Sources */,
 				B676EF4E24A2BE5B00CF4D08 /* TableViewCell.swift in Sources */,
-				B63505FD24A3128D00F66A86 /* Contains.swift in Sources */,
+				B693600724C6A670007F4BBD /* Global.swift in Sources */,
 				B676EF2224A2703C00CF4D08 /* ViewController.swift in Sources */,
 				B66CE80324AF16A100D60EB6 /* UseGithubAPI.xcdatamodeld in Sources */,
 				B679375E24AB47D60032BADA /* TableViewCellProfile.swift in Sources */,

@@ -15,9 +15,11 @@ class TableViewCell2: UITableViewCell {
     @IBOutlet weak var lbFork: UILabel!
     @IBOutlet weak var lbIssue: UILabel!
     @IBOutlet weak var lbCommit: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

@@ -14,6 +14,7 @@
         var provider = OAuthProvider(providerID: "github.com")
         @IBOutlet var contentView: UIView!
         let prefereces = UserDefaults.standard
+        var isLogin = false
         
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -41,6 +42,7 @@
                 self.rightAnchor.constraint(equalTo: contentView.rightAnchor)
                 ])
         }
+        
         @IBAction func btnLogin(_ sender: Any) {
             provider.customParameters = [
                 "allow_signup": "false"
@@ -54,10 +56,11 @@
                             // Handle error.
                             debugPrint("LOGIN FAILED")
                         } else {
-                            ViewController3.isLoggin = true
+                            self.isLogin = true
                             let a = authResult?.credential as! OAuthCredential
                             let accessToken = a.accessToken
-                            self.prefereces.set(accessToken, forKey: "000")
+                            self.prefereces.set(accessToken, forKey: "AccessToken")
+                            self.prefereces.set(self.isLogin, forKey: "LoginCheck")
                             NotificationCenter.default.post(name: NSNotification.Name("reload"), object: nil)
                             self.isHidden = true
                         }

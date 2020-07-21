@@ -23,8 +23,8 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         tableRepo.dataSource = self
         tableRepo.delegate = self
         //repo
-        let accessToken = UserDefaults.standard.string(forKey: "000")!
-        Contains.accessToken = accessToken
+        let accessToken = UserDefaults.standard.string(forKey: "AccessToken")!
+        Global.accessToken = accessToken
         getRepo.fetchData2(callback: addData(arrPrivate:arrPublic:))
         if !InternetCheck.isConnectedToInternet() {
             arrUser = cache.get()

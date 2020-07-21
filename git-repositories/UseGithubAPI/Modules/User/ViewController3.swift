@@ -13,13 +13,14 @@ import CoreData
 class ViewController3: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var customLogin: CustomLogin!
-    public static var isLoggin = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        if ViewController3.isLoggin {
+        let isLogin = UserDefaults.standard.bool(forKey: "LoginCheck")
+        debugPrint(isLogin)
+        if isLogin {
             customLogin.isHidden = true
         }
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name("reload"), object: nil)

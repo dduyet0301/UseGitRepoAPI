@@ -39,7 +39,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if !InternetCheck.isConnectedToInternet() {
             print("no internet 00")
-            arrRepoCacheDefault = Contains.cachePublic.get()
+            arrRepoCacheDefault = cache.get()
             arrRepo = arrRepoCacheDefault
         } else {
             getData.fetchData(callback: addData(arr:))
@@ -52,6 +52,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func addData(arr: [GitRepo]) {
         cache.delete()
+        arrRepoCacheDefault.removeAll()
         for i in arr {
             arrRepoCacheDefault.append(i)
         }
@@ -71,17 +72,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @objc private func refreshData(_: Any) {
-        arrRepo.removeAll()
-        tableInfo.dataSource = self
-        tableInfo.delegate = self
         getData.fetchData(callback: addData(arr:))
         refreshControl.endRefreshing()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        debugPrint(arrRepo.count)
         return arrRepo.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:TableViewCell = tableInfo.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
             let repo = arrRepo[indexPath.row]
@@ -109,7 +108,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if !InternetCheck.isConnectedToInternet() {
                 arrRepo = arrRepoCacheDefault
             } else {
-                // FIXME: nên đưa logic liên quan đến API vào bên trong lớp quản lý API và chỉ truyền dữ liệu cần thiết vào thôi, tránh việc các lớp không liên khác phải làm công việc xử lý logic của lớp API
                 ViewController.limit = 50
                 ViewController.page = 1
                getData.fetchData(callback: addData(arr:))
@@ -134,11 +132,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //            self.tableInfo.tableFooterView?.isHidden = false
 //        }
         let index = arrRepo.count
-        if indexPath.row == index - 1 && Contains.loadMore {
+        if indexPath.row == index - 1 && Global.loadMore {
             if index < 950 {
                 ViewController.limit = index + 50
                 ViewController.page += 1
-                Contains.loadMore = false
+                Global.loadMore = false
                 self.perform(#selector(loadMore), with: nil, afterDelay: 0.01)
             }
         }

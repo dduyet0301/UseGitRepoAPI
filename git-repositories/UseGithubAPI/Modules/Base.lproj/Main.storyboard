@@ -192,9 +192,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-blue" translatesAutoresizingMaskIntoConstraints="NO" id="DGm-wC-k5k">
-                                <rect key="frame" x="80" y="50" width="250" height="180"/>
+                                <rect key="frame" x="80" y="50" width="250" height="140"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="PT1-Ie-hnC"/>
+                                    <constraint firstAttribute="height" constant="140" id="PT1-Ie-hnC"/>
                                     <constraint firstAttribute="width" constant="250" id="y8Y-Fc-Ekd"/>
                                 </constraints>
                             </imageView>
@@ -209,7 +209,7 @@
                             <constraint firstItem="4AR-75-CgH" firstAttribute="trailing" secondItem="PRu-su-UCS" secondAttribute="trailing" constant="48" id="MUv-pu-V50"/>
                             <constraint firstItem="7e1-9W-aKf" firstAttribute="top" secondItem="PRu-su-UCS" secondAttribute="bottom" constant="300" id="SAc-92-Xsw"/>
                             <constraint firstItem="PRu-su-UCS" firstAttribute="leading" secondItem="4AR-75-CgH" secondAttribute="leading" constant="48" id="a67-uz-aFo"/>
-                            <constraint firstItem="PRu-su-UCS" firstAttribute="top" secondItem="DGm-wC-k5k" secondAttribute="bottom" constant="57" id="sr1-dw-aGi"/>
+                            <constraint firstItem="PRu-su-UCS" firstAttribute="top" secondItem="DGm-wC-k5k" secondAttribute="bottom" constant="97" id="sr1-dw-aGi"/>
                             <constraint firstItem="10M-2j-F4t" firstAttribute="leading" secondItem="4AR-75-CgH" secondAttribute="leading" constant="48" id="vCu-LS-nEq"/>
                             <constraint firstItem="4AR-75-CgH" firstAttribute="trailing" secondItem="7e1-9W-aKf" secondAttribute="trailing" constant="154" id="xcA-ya-NtR"/>
                         </constraints>
@@ -637,7 +637,7 @@
         <image name="fork" width="24" height="24"/>
         <image name="github_icon" width="24" height="24"/>
         <image name="issue" width="24" height="24"/>
-        <image name="logo-blue" width="45.666667938232422" height="15.333333015441895"/>
+        <image name="logo-blue" width="137" height="46"/>
         <image name="logout" width="50" height="50"/>
         <image name="repository_icon" width="24" height="24"/>
         <image name="right_arrow" width="50" height="50"/>

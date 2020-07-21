@@ -11,25 +11,20 @@ import Alamofire
 import SwiftyJSON
 
 class GetData {
-    
-    // FIXME: lớp gọi API không nên phụ thuộc vào các thành phần UI nên không truyền UITableView vào đây
-    // giả sử dữ liệu dùng làm data source cho collection view thì hàm này không dùng được
-    // nên truyền vào 1 hàm (closure) callback để trả lại dữ liệu
     func fetchData(callback: @escaping ([GitRepo]) -> Void ) {
         let limit = ViewController.limit
         let page = ViewController.page
         let sortContent = ViewController.sortContent
         let sortType = ViewController.sortType
         var arrRepo: [GitRepo] = []
-        
-        Alamofire.request("https://api.github.com/search/repositories?q=language:&per_page=\(limit)&page=\(page)&sort=\(sortContent)&order=\(sortType)", method: .get).responseJSON { (myResponse) in
+         Alamofire.request("https://api.github.com/search/repositories?q=language:&per_page=\(limit)&page=\(page)&sort=\(sortContent)&order=\(sortType)", method: .get).responseJSON { (myResponse) in
             switch myResponse.result{
             case .success:
 //                print(myResponse)
-                debugPrint("https://api.github.com/search/repositories?q=language:&per_page=\(limit)&page=\(page)&sort=\(sortContent)&order=\(sortType)")
                 do{
                 let myresult = try JSON(data: myResponse.data!)
                     if let resultArray = myresult["items"].array{
+                        arrRepo.removeAll()
                         for i in resultArray{
                             let name = i["name"].stringValue
                             let login = i["owner"]["login"].stringValue
@@ -44,7 +39,7 @@ class GetData {
                             arrRepo.append(gitRepo)
                         }
                         callback(arrRepo)
-                        Contains.loadMore = true
+                        Global.loadMore = true
                     }
                 } catch {
                     debugPrint("error")
@@ -58,10 +53,9 @@ class GetData {
         }
     }
     
-    // FIXME: tương tự FIXME trên
     func fetchData2(callback: @escaping ([GitRepo],[GitRepo]) -> Void) {
         let header = [
-            "Authorization" : "token " + Contains.accessToken
+            "Authorization" : "token " + Global.accessToken
         ]
         var arrUser: [GitRepo] = []
         var arrPrivate: [GitRepo] = []
@@ -95,7 +89,6 @@ class GetData {
                                 arrPublic.append(gitUserRepo)
                             }
                         }
-                        arrUser = arrPublic
                         callback(arrPrivate, arrPublic)
                     }
                 } catch {
