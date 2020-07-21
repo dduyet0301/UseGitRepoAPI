@@ -192,11 +192,11 @@
 		B68B47AD24A4A85C00E4C7C0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B693600624C6A670007F4BBD /* Global.swift */,
 				B63505F824A2E77B00F66A86 /* GetData.swift */,
 				B67D842824AC83350011320F /* Cache.swift */,
 				B66A3BDF24ADC4F10073C86A /* CachePublic.swift */,
 				B66A3BE124ADE7650073C86A /* InternetCheck.swift */,
-				B693600624C6A670007F4BBD /* Global.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

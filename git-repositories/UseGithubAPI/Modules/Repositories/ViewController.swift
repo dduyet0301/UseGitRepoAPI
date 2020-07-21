@@ -12,7 +12,7 @@ import SwiftyJSON
 import SDWebImage
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var forkSort: UIButton!
     @IBOutlet weak var starSort: UIButton!
@@ -76,80 +76,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         refreshControl.endRefreshing()
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        debugPrint(arrRepo.count)
-        return arrRepo.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:TableViewCell = tableInfo.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
-            let repo = arrRepo[indexPath.row]
-            cell.lbName.text = repo.login
-            cell.lbRepo.text = repo.name
-            cell.imgAvatar.sd_setImage(with: URL(string: repo.avatar_url))
-            cell.lbStar.text = repo.star
-            cell.lbWatch.text = repo.watch
-            cell.lbFork.text = repo.fork
-            cell.lbIssue.text = repo.issue
-            cell.lbCommit.text =  "Commit at: \(repo.commit)"
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        mode = 3
-        if searchText.isEmpty {
-            mode = 2
-            arrRepo.removeAll()
-            tableInfo.reloadData()
-            if !InternetCheck.isConnectedToInternet() {
-                arrRepo = arrRepoCacheDefault
-            } else {
-                ViewController.limit = 50
-                ViewController.page = 1
-               getData.fetchData(callback: addData(arr:))
-            }
-        } else {
-            arrRepo = arrRepoCacheDefault
-            arrRepo = arrRepo.filter({ (repo) -> Bool in
-                return repo.name.lowercased().contains(searchText.lowercased())
-            })
-        }
-        tableInfo.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        let lastSectionIndex = tableView.numberOfSections - 1
-//        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
-//        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
-//            let spinner = UIActivityIndicatorView(style: .gray)
-//            spinner.startAnimating()
-//            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
-//            self.tableInfo.tableFooterView = spinner
-//            self.tableInfo.tableFooterView?.isHidden = false
-//        }
-        let index = arrRepo.count
-        if indexPath.row == index - 1 && Global.loadMore {
-            if index < 950 {
-                ViewController.limit = index + 50
-                ViewController.page += 1
-                Global.loadMore = false
-                self.perform(#selector(loadMore), with: nil, afterDelay: 0.01)
-            }
-        }
-    }
-    
     @objc func loadMore() {
         if mode == 2 {
-           getData.fetchData(callback: addData(arr:))
+            getData.fetchData(callback: addData(arr:))
         } else if mode == 0 {
             ViewController.sortContent = "stars"
-           getData.fetchData(callback: addData(arr:))
+            getData.fetchData(callback: addData(arr:))
         } else if mode == 1 {
-             ViewController.sortContent = "forks"
+            ViewController.sortContent = "forks"
             getData.fetchData(callback: addData(arr:))
         }
     }
@@ -173,7 +107,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             arrRepo.removeAll()
             tableInfo.reloadData()
             ViewController.sortContent = "stars"
-          getData.fetchData(callback: addData(arr:))
+            getData.fetchData(callback: addData(arr:))
         } else {
             starCache()
         }
@@ -190,7 +124,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @objc func fork() {
         //&sort=forks
-          arrRepoCacheDefault.removeAll()
+        arrRepoCacheDefault.removeAll()
         if mode == 1  {
             ViewController.desc = !ViewController.desc
         } else {
@@ -221,12 +155,75 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         tableInfo.reloadData()
     }
+}
+
+extension ViewController: UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        debugPrint(arrRepo.count)
+        return arrRepo.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell:TableViewCell = tableInfo.dequeueReusableCell(withIdentifier: "Cell") as! TableViewCell
+        let repo = arrRepo[indexPath.row]
+        cell.lbName.text = repo.login
+        cell.lbRepo.text = repo.name
+        cell.imgAvatar.sd_setImage(with: URL(string: repo.avatar_url))
+        cell.lbStar.text = repo.star
+        cell.lbWatch.text = repo.watch
+        cell.lbFork.text = repo.fork
+        cell.lbIssue.text = repo.issue
+        cell.lbCommit.text =  "Commit at: \(repo.commit)"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let index = arrRepo.count
+        if indexPath.row == index - 1 && Global.loadMore {
+            if index < 950 {
+                ViewController.limit = index + 50
+                ViewController.page += 1
+                Global.loadMore = false
+                self.perform(#selector(loadMore), with: nil, afterDelay: 0.01)
+            }
+        }
+    }
+}
+
+extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let web = storyboard?.instantiateViewController(withIdentifier: "ViewController2") as? ViewController2
         web?.url = arrRepo[indexPath.row].url
         self.navigationController?.pushViewController(web!, animated: true)
-        
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        mode = 3
+        if searchText.isEmpty {
+            mode = 2
+            arrRepo.removeAll()
+            tableInfo.reloadData()
+            if !InternetCheck.isConnectedToInternet() {
+                arrRepo = arrRepoCacheDefault
+            } else {
+                ViewController.limit = 50
+                ViewController.page = 1
+                getData.fetchData(callback: addData(arr:))
+            }
+        } else {
+            arrRepo = arrRepoCacheDefault
+            arrRepo = arrRepo.filter({ (repo) -> Bool in
+                return repo.name.lowercased().contains(searchText.lowercased())
+            })
+        }
+        tableInfo.reloadData()
     }
 }
 

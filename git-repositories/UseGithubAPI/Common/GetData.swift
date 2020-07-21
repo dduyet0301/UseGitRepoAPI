@@ -57,7 +57,6 @@ class GetData {
         let header = [
             "Authorization" : "token " + Global.accessToken
         ]
-        var arrUser: [GitRepo] = []
         var arrPrivate: [GitRepo] = []
         var arrPublic: [GitRepo] = []
         Alamofire.request("https://api.github.com/user/repos", method: .get, headers: header).responseJSON { (myResponse)
@@ -68,7 +67,6 @@ class GetData {
                 do{
                     let myresult = try JSON(data: myResponse.data!)
                     if let resultArray = myresult.array{
-                        arrUser.removeAll()
                         arrPrivate.removeAll()
                         arrPublic.removeAll()
                         for i in resultArray{
@@ -81,8 +79,8 @@ class GetData {
                             let fork = i["forks_count"].stringValue
                             let issue = i["open_issues_count"].stringValue
                             let commit = i["pushed_at"].stringValue
-                            let gitUserRepo = GitRepo.init(name: repoName, login: userName, avatar_url: avatar, star: star, watch: watch, fork: fork, issue: issue, commit: commit, url: "", priv: priv)
-                            arrUser.append(gitUserRepo)
+                            let url = i["html_url"].stringValue
+                            let gitUserRepo = GitRepo.init(name: repoName, login: userName, avatar_url: avatar, star: star, watch: watch, fork: fork, issue: issue, commit: commit, url: url, priv: priv)
                             if priv == "true" {
                                 arrPrivate.append(gitUserRepo)
                             } else if priv == "false" {

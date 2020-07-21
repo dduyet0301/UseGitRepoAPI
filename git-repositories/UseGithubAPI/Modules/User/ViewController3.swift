@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import CoreData
 
-class ViewController3: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController3: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var customLogin: CustomLogin!
     
@@ -29,18 +29,20 @@ class ViewController3: UIViewController, UITableViewDataSource, UITableViewDeleg
     @objc func reload (notification: NSNotification) {
         tableView.reloadData()
     }
-    
+}
+
+extension ViewController3: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellProfile") as! TableViewCellProfile
-                let name = Auth.auth().currentUser?.displayName
-                let image = Auth.auth().currentUser?.photoURL
-                cell.imgAva.sd_setImage(with: image)
-                cell.lbName.text = name
+            let name = Auth.auth().currentUser?.displayName
+            let image = Auth.auth().currentUser?.photoURL
+            cell.imgAva.sd_setImage(with: image)
+            cell.lbName.text = name
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellRepo") as! TableViewCellRepo
@@ -58,7 +60,9 @@ class ViewController3: UIViewController, UITableViewDataSource, UITableViewDeleg
             return 50
         }
     }
-    
+}
+
+extension ViewController3: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
             let repo = storyboard?.instantiateViewController(withIdentifier: "Github") as! GithubViewController

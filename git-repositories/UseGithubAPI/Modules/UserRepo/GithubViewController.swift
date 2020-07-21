@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class GithubViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class GithubViewController: UIViewController{
     
     @IBOutlet weak var tableRepo: UITableView!
     let getRepo = GetData()
@@ -46,6 +46,18 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
         tableRepo.reloadData()
     }
     
+    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            arrUser = arrPublic
+            tableRepo.reloadData()
+        } else if sender.selectedSegmentIndex == 1 {
+            arrUser = arrPrivate
+            tableRepo.reloadData()
+        }
+    }
+}
+
+extension GithubViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrUser.count
     }
@@ -65,14 +77,12 @@ class GithubViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
-    
-    @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            arrUser = arrPublic
-            tableRepo.reloadData()
-        } else if sender.selectedSegmentIndex == 1 {
-            arrUser = arrPrivate
-            tableRepo.reloadData()
-        }
+}
+
+extension GithubViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let web = storyboard?.instantiateViewController(withIdentifier: "ViewController2") as? ViewController2
+        web?.url = arrUser[indexPath.row].url
+        self.navigationController?.pushViewController(web!, animated: true)
     }
 }
