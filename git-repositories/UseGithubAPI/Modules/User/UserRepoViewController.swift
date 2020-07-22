@@ -19,7 +19,6 @@ class UserRepoViewController: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
         let isLogin = UserDefaults.standard.bool(forKey: "LoginCheck")
-        debugPrint(isLogin)
         if isLogin {
             customLogin.isHidden = true
         }

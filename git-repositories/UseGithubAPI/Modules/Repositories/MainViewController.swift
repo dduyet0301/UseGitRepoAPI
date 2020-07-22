@@ -52,7 +52,6 @@ class MainViewController: UIViewController {
     
     func addData(arr: [GitRepo]) {
         cache.delete()
-        arrRepoCacheDefault.removeAll()
         for i in arr {
             arrRepoCacheDefault.append(i)
         }
@@ -160,7 +159,6 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        debugPrint(arrRepo.count)
         return arrRepo.count
     }
     
@@ -183,14 +181,20 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let index = arrRepo.count
-        if indexPath.row == index - 1 && Global.loadMore {
+        var index = arrRepo.count
+        if (indexPath.row == index - 1 && Global.loadMore) {
             if index < 950 {
-                MainViewController.limit = index + 50
+                index = index + 50
                 MainViewController.page += 1
                 Global.loadMore = false
                 self.perform(#selector(loadMore), with: nil, afterDelay: 0.01)
             }
+        }
+        
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -300, 10, 0)
+        cell.layer.transform = rotationTransform
+        UIView.animate(withDuration: 1.0) {
+            cell.layer.transform = CATransform3DIdentity
         }
     }
 }
@@ -201,6 +205,7 @@ extension MainViewController: UITableViewDelegate {
         web?.url = arrRepo[indexPath.row].url
         self.navigationController?.pushViewController(web!, animated: true)
     }
+    
 }
 
 extension MainViewController: UISearchBarDelegate {

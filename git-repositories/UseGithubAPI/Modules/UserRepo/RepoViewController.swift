@@ -17,6 +17,9 @@ class RepoViewController: UIViewController{
     var arrUser: [GitRepo] = []
     var arrPrivate: [GitRepo] = []
     var arrPublic: [GitRepo] = []
+    var currentSegment = 0
+    var yPublic: CGFloat = 0.0
+    var yPrivate: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +51,13 @@ class RepoViewController: UIViewController{
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
+            currentSegment = 0
+            tableRepo.setContentOffset(CGPoint(x: 0, y: yPublic), animated: true)
             arrUser = arrPublic
             tableRepo.reloadData()
         } else if sender.selectedSegmentIndex == 1 {
+            currentSegment = 1
+            tableRepo.setContentOffset(CGPoint(x: 0, y: yPrivate), animated: true)
             arrUser = arrPrivate
             tableRepo.reloadData()
         }
@@ -84,5 +91,13 @@ extension RepoViewController: UITableViewDelegate {
         let web = storyboard?.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController
         web?.url = arrUser[indexPath.row].url
         self.navigationController?.pushViewController(web!, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if currentSegment == 0 {
+            yPublic = scrollView.contentOffset.y
+        } else if currentSegment == 1 {
+            yPrivate = scrollView.contentOffset.y
+        }
     }
 }
