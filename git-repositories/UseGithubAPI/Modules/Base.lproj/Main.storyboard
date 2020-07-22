@@ -13,7 +13,7 @@
         <!--Github-->
         <scene sceneID="bdt-yu-i56">
             <objects>
-                <viewController storyboardIdentifier="Github" id="vsU-72-kMv" customClass="GithubViewController" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepoViewController" id="vsU-72-kMv" customClass="RepoViewController" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EHw-2N-S7L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -220,10 +220,10 @@
             </objects>
             <point key="canvasLocation" x="-555.07246376811599" y="115.7608695652174"/>
         </scene>
-        <!--View Controller3-->
+        <!--User Repo View Controller-->
         <scene sceneID="UW9-BI-QQs">
             <objects>
-                <viewController id="1LJ-Ic-t5s" customClass="ViewController3" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1LJ-Ic-t5s" customClass="UserRepoViewController" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZR5-qT-WWI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -338,7 +338,7 @@
         <!--Repositories-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -560,10 +560,10 @@
             </objects>
             <point key="canvasLocation" x="1831.8840579710147" y="-205.43478260869566"/>
         </scene>
-        <!--View Controller2-->
+        <!--Web View Controller-->
         <scene sceneID="GKA-uK-Zev">
             <objects>
-                <viewController storyboardIdentifier="ViewController2" id="fjl-xS-DAk" customClass="ViewController2" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" id="fjl-xS-DAk" customClass="WebViewController" customModule="UseGithubAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U5g-ex-LpW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,7 +637,7 @@
         <image name="fork" width="24" height="24"/>
         <image name="github_icon" width="24" height="24"/>
         <image name="issue" width="24" height="24"/>
-        <image name="logo-blue" width="137" height="46"/>
+        <image name="logo-blue" width="68.5" height="23"/>
         <image name="logout" width="50" height="50"/>
         <image name="repository_icon" width="24" height="24"/>
         <image name="right_arrow" width="50" height="50"/>

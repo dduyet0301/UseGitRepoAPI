@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class GithubViewController: UIViewController{
+class RepoViewController: UIViewController{
     
     @IBOutlet weak var tableRepo: UITableView!
     let getRepo = GetData()
@@ -57,7 +57,7 @@ class GithubViewController: UIViewController{
     }
 }
 
-extension GithubViewController: UITableViewDataSource {
+extension RepoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrUser.count
     }
@@ -79,9 +79,9 @@ extension GithubViewController: UITableViewDataSource {
     }
 }
 
-extension GithubViewController: UITableViewDelegate {
+extension RepoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let web = storyboard?.instantiateViewController(withIdentifier: "ViewController2") as? ViewController2
+        let web = storyboard?.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController
         web?.url = arrUser[indexPath.row].url
         self.navigationController?.pushViewController(web!, animated: true)
     }

@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import CoreData
 
-class ViewController3: UIViewController{
+class UserRepoViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var customLogin: CustomLogin!
     
@@ -31,7 +31,7 @@ class ViewController3: UIViewController{
     }
 }
 
-extension ViewController3: UITableViewDataSource {
+extension UserRepoViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -62,10 +62,10 @@ extension ViewController3: UITableViewDataSource {
     }
 }
 
-extension ViewController3: UITableViewDelegate {
+extension UserRepoViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            let repo = storyboard?.instantiateViewController(withIdentifier: "Github") as! GithubViewController
+            let repo = storyboard?.instantiateViewController(withIdentifier: "RepoViewController") as! RepoViewController
             self.navigationController?.pushViewController(repo, animated: true)
         } else if indexPath.row == 2 {
             let firebaseAuth = Auth.auth()

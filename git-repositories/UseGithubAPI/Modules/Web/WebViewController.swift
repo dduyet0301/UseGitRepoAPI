@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController2: UIViewController {
+class WebViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     var url: String = ""

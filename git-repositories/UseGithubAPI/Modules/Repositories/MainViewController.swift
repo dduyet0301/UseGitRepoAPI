@@ -12,7 +12,7 @@ import SwiftyJSON
 import SDWebImage
 import CoreData
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var forkSort: UIButton!
     @IBOutlet weak var starSort: UIButton!
@@ -80,10 +80,10 @@ class ViewController: UIViewController {
         if mode == 2 {
             getData.fetchData(callback: addData(arr:))
         } else if mode == 0 {
-            ViewController.sortContent = "stars"
+            MainViewController.sortContent = "stars"
             getData.fetchData(callback: addData(arr:))
         } else if mode == 1 {
-            ViewController.sortContent = "forks"
+            MainViewController.sortContent = "forks"
             getData.fetchData(callback: addData(arr:))
         }
     }
@@ -92,21 +92,21 @@ class ViewController: UIViewController {
         //&sort=stars
         arrRepoCacheDefault.removeAll()
         if mode == 0  {
-            ViewController.desc = !ViewController.desc
+            MainViewController.desc = !MainViewController.desc
         } else {
             mode = 0
-            ViewController.desc = true
+            MainViewController.desc = true
         }
         if InternetCheck.isConnectedToInternet() {
-            ViewController.page = 1
-            if ViewController.desc {
-                ViewController.sortType = "desc"
+            MainViewController.page = 1
+            if MainViewController.desc {
+                MainViewController.sortType = "desc"
             } else {
-                ViewController.sortType = "asc"
+                MainViewController.sortType = "asc"
             }
             arrRepo.removeAll()
             tableInfo.reloadData()
-            ViewController.sortContent = "stars"
+            MainViewController.sortContent = "stars"
             getData.fetchData(callback: addData(arr:))
         } else {
             starCache()
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
     }
     
     func starCache() {
-        if ViewController.desc {
+        if MainViewController.desc {
             arrRepo = arrRepo.sorted(by: { (Int($0.star) ?? 0) > (Int($1.star) ?? 0) })
         } else {
             arrRepo = arrRepo.sorted(by: { (Int($0.star) ?? 0) < (Int($1.star) ?? 0) })
@@ -126,20 +126,20 @@ class ViewController: UIViewController {
         //&sort=forks
         arrRepoCacheDefault.removeAll()
         if mode == 1  {
-            ViewController.desc = !ViewController.desc
+            MainViewController.desc = !MainViewController.desc
         } else {
             mode = 1
-            ViewController.desc = true
+            MainViewController.desc = true
         }
         if InternetCheck.isConnectedToInternet(){
-            ViewController.page = 1
-            if ViewController.desc {
-                ViewController.sortType = "desc"
+            MainViewController.page = 1
+            if MainViewController.desc {
+                MainViewController.sortType = "desc"
             } else {
-                ViewController.sortType = "asc"
+                MainViewController.sortType = "asc"
             }
             arrRepo.removeAll()
-            ViewController.sortContent = "forks"
+            MainViewController.sortContent = "forks"
             tableInfo.reloadData()
             getData.fetchData(callback: addData(arr:))
         } else {
@@ -148,7 +148,7 @@ class ViewController: UIViewController {
     }
     
     func forkCache () {
-        if ViewController.desc {
+        if MainViewController.desc {
             arrRepo = arrRepo.sorted(by: { (Int($0.fork) ?? 0) > (Int($1.fork) ?? 0) })
         } else {
             arrRepo = arrRepo.sorted(by: { (Int($0.fork) ?? 0) < (Int($1.fork) ?? 0) })
@@ -157,7 +157,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         debugPrint(arrRepo.count)
@@ -186,8 +186,8 @@ extension ViewController: UITableViewDataSource {
         let index = arrRepo.count
         if indexPath.row == index - 1 && Global.loadMore {
             if index < 950 {
-                ViewController.limit = index + 50
-                ViewController.page += 1
+                MainViewController.limit = index + 50
+                MainViewController.page += 1
                 Global.loadMore = false
                 self.perform(#selector(loadMore), with: nil, afterDelay: 0.01)
             }
@@ -195,15 +195,15 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let web = storyboard?.instantiateViewController(withIdentifier: "ViewController2") as? ViewController2
+        let web = storyboard?.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController
         web?.url = arrRepo[indexPath.row].url
         self.navigationController?.pushViewController(web!, animated: true)
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         mode = 3
         if searchText.isEmpty {
@@ -213,8 +213,8 @@ extension ViewController: UISearchBarDelegate {
             if !InternetCheck.isConnectedToInternet() {
                 arrRepo = arrRepoCacheDefault
             } else {
-                ViewController.limit = 50
-                ViewController.page = 1
+                MainViewController.limit = 50
+                MainViewController.page = 1
                 getData.fetchData(callback: addData(arr:))
             }
         } else {

@@ -12,10 +12,10 @@ import SwiftyJSON
 
 class GetData {
     func fetchData(callback: @escaping ([GitRepo]) -> Void ) {
-        let limit = ViewController.limit
-        let page = ViewController.page
-        let sortContent = ViewController.sortContent
-        let sortType = ViewController.sortType
+        let limit = MainViewController.limit
+        let page = MainViewController.page
+        let sortContent = MainViewController.sortContent
+        let sortType = MainViewController.sortType
         var arrRepo: [GitRepo] = []
          Alamofire.request("https://api.github.com/search/repositories?q=language:&per_page=\(limit)&page=\(page)&sort=\(sortContent)&order=\(sortType)", method: .get).responseJSON { (myResponse) in
             switch myResponse.result{
